@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список задач</title>
+</head>
+<body>
+    <h1>Список задач</h1>
+    <ul>
+        {% for task in tasks %}
+            <li>
+                <strong>Название:</strong> {{ task.name }}<br>
+                <strong>Проект:</strong> {{ task.project.name }}<br>
+                <strong>Тип задачи:</strong> {{ task.task_type.name }}<br>
+                <strong>Адрес:</strong> {{ task.address }}<br>
+                <strong>Исполнитель:</strong> {{ task.executor.get_full_name }}<br>
+                <strong>Менеджер:</strong> {{ task.manager.get_full_name }}<br>
+                <strong>Дедлайн:</strong> {{ task.deadline }}<br>
+                <strong>Создано:</strong> {{ task.created_at }}<br>
+                <strong>Обновлено:</strong> {{ task.updated_at }}<br>
+            </li>
+            <hr>
+        {% endfor %}
+    </ul>
+</body>
+</html>
